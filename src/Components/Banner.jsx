@@ -15,9 +15,9 @@ const Banner = () => {
   >
     <div className="max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
       <h1 className="text-3xl font-extrabold sm:text-5xl">
-        Let us find your
+        Let Shopping with us
 
-        <strong className="block font-extrabold text-rose-700"> Forever Home. </strong>
+        <strong className="block font-extrabold text-rose-700"> Forever Available. </strong>
       </h1>
 
       <p className="mt-4 max-w-lg sm:text-xl/relaxed">

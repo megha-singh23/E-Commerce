@@ -40,6 +40,11 @@ export default Product
 
 const SubCard=({prod})=>{
 
+  const [quantity,setQuantity]=useState(0);
+  const increment=()=>{
+    setQuantity(quantity+1);
+  }
+
   return(
 <a href="#" className="group relative block overflow-hidden rounded-lg shadow-md">
       <button className="absolute end-4 top-4 z-10 rounded-full bg-white p-1.5 text-gray-900 transition hover:text-gray-900/75">
@@ -49,15 +54,29 @@ const SubCard=({prod})=>{
         </svg>
       </button>
 
-      <img src={prod.image} alt='' className="h-64 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-72" />
+      <img src={prod.image} alt='' className="h-64 scale-[0.8] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-72" />
 
       <div className="relative border border-gray-100 bg-white p-6">
-        <span className="bg-yellow-400 px-3 py-1.5 text-xs font-medium">{prod.category}</span>
+        <span className="bg-amber-400 px-3 py-1.5 text-xs font-medium">{prod.category}</span>
         <h3 className="mt-4 text-lg font-medium text-gray-900">{prod.title}</h3>
-        <p className="mt-1.5 text-sm text-gray-700">${prod.price}</p>
-        <button className="mt-4 block w-full rounded-sm bg-yellow-400 p-4 text-sm font-medium transition hover:scale-105">
+
+        <div className="flex justify-around">
+          <h2 className='text-xl text-red-600 line-through'>${(prod.price*1.15).toFixed(2)}</h2>
+          <h2 className='text-xl text-green-600'>${prod.price}</h2>
+          <h2 className='text-xl text-gray-600'>15% OFF</h2>
+        </div>
+        <div className="flex">
+          {/* {quantity>0 ?"Quantity"+ quantity:null} */}
+          {quantity>0 && "Quantity "+ quantity}       {/*Contional Rendering*/}
+        </div>
+        <div className='flex justify-between gap-2'>
+        <button onClick={increment} className="mt-4 block w-1/2 rounded-sm bg-yellow-400 p-4 text-sm font-medium transition hover:scale-105">
           Add to Cart
         </button>
+        <button onClick={increment} className="mt-4 block w-1/2 rounded-sm bg-blue-400 p-4 text-sm font-medium transition hover:scale-105">
+          Buy Now
+        </button>
+        </div>
       </div>
     </a>
 
