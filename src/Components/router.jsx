@@ -6,6 +6,9 @@ import Product from './Product'
 import Calender from './Calender'
 import About from './About'
 import Contact from './Contact'
+import Services, { AddUser, DeleteUser, SeeAllUser, UpdateUser } from './Services'
+import Login from './login'
+import Register from './register'
 
 
 const router=createBrowserRouter([
@@ -25,7 +28,38 @@ const router=createBrowserRouter([
        {
         path:'/Calender',
         element:<Calender/>
-       }
+       },
+       {
+        path: "login",
+        element: <Login />
+        },
+        {
+        path: "register",
+        element: <Register />
+        },
+       {
+        path: "services",
+        element: <Services />,
+        children: [
+            {
+                path: "add",
+                element: <AddUser />
+            },
+            {
+                path: "update",
+                element: <UpdateUser />
+            },
+            {
+                path: "delete",
+                element: <DeleteUser />
+            },
+            {
+                path: "allusers",
+                element: <SeeAllUser />
+            },
+        ]
+       
+    }
     ]
     },
     {

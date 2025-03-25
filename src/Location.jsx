@@ -6,7 +6,7 @@ import Footer from './Components/footer'
 const Location = () => {
   return (
     <>
-    <Banner/>
+    {/* <Banner/> */}
     <Product/>
     <Footer/>
     </>
