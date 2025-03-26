@@ -1,6 +1,36 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const login = () => {
+
+  const [email,setEmail]=useState('');
+  const [password,setPassword]=useState('');
+
+  const[emailErr,setEmailErr]=useState('');
+  const [isFormValid,setFormValid]=useState(false);
+
+  const validateEmail=(e)=>{
+    setEmail(e.target.value);
+    
+    if(e.target.value===null || e.target.value===''){
+      setEmailErr('pls input the email');
+      setFormValid(false);
+    }
+    else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e.target.value)){
+      setEmailErr('pls input the valid email');
+      setFormValid(false)
+
+    }
+    else{
+      setEmailErr('');
+      setFormValid(true);
+    }
+}
+  const submitFormHandler=()=>{
+    e.preventDefault();
+    console.log("Form submitted ",email,password);
+    setEmail('');
+    setPassword('');
+  }
   return (
     <div>
       <>
@@ -16,7 +46,7 @@ const login = () => {
       </h2>
     </div>
     <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-      <form className="space-y-6" action="#" method="POST">
+      <form className="space-y-6" onSubmit={submitFormHandler} method="POST">
         <div>
           <label
             htmlFor="email"
@@ -26,13 +56,16 @@ const login = () => {
           </label>
           <div className="mt-2">
             <input
-              type="email"
+              type="text"
               name="email"
               id="email"
+              onChange={validateEmail}
+              value={email}
               autoComplete="email"
-              required=""
+              required
               className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
             />
+            <div className="text-red-500">{emailErr}</div>
           </div>
         </div>
         <div>
@@ -57,8 +90,10 @@ const login = () => {
               type="password"
               name="password"
               id="password"
+              onChange={(e)=>setPassword(e.target.value)}
+              value={password}
               autoComplete="current-password"
-              required=""
+              required
               className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
             />
           </div>
@@ -66,8 +101,9 @@ const login = () => {
         <div>
           <button
             type="submit"
-            className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-          >
+            className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:bg-blue-400"
+            disabled={ !isFormValid}
+      >
             Sign in
           </button>
         </div>

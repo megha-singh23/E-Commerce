@@ -124,8 +124,8 @@ const[isUserModalOpen,setUserModal]=useState(false);
                             isUserModalOpen={isUserModalOpen}
                             />:
                             <div className="flex gap-2">
-                            <Link to='/login'><button className="rounded p-2 px-2 bg-green-500 cursor-pointer">Login</button></Link>
-                            <Link to='/register'><button className="rounded p-2 px-2 bg-blue-500 cursor-pointer">Register</button></Link>
+                            <Link to='/login'><button className="rounded p-2 px-2 bg-green-500 font-semibold cursor-pointer">Login</button></Link>
+                            <Link to='/register'><button className="rounded p-2 px-2 bg-blue-500 font-semibold cursor-pointer">Register</button></Link>
                            </div>
                         }
                     </div>
