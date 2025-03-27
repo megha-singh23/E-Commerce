@@ -1,9 +1,13 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 
 const Product = () => {
 
   const [products,setProducts]=useState([]);
+
+  useEffect(()=>{
+    getAllProducts();
+  })
 
     const getAllProducts=async ()=>{
       try{
@@ -17,10 +21,12 @@ const Product = () => {
       }
     }
 
+    
+
 
   return (
     <>
-    <button onClick={getAllProducts} className='p-2 bg-blue-500 rounded my-3.5 mx-7 cursor-pointer'>Load Products</button>
+    <div className='font-bold text-4xl text-center mt-1.5'>Products List</div>
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6">
       {/* {JSON.stringify(products)};
 

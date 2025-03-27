@@ -9,6 +9,7 @@ import Contact from './Contact'
 import Services, { AddUser, DeleteUser, SeeAllUser, UpdateUser } from './Services'
 import Login from './login'
 import Register from './register'
+import Hook from './Hook'
 
 
 const router=createBrowserRouter([
@@ -36,6 +37,10 @@ const router=createBrowserRouter([
         {
         path: "register",
         element: <Register />
+        },
+        {
+            path:'/Use',
+            element:<Hook/>
         },
        {
         path: "services",
