@@ -56,12 +56,13 @@ export default WrappingChild
 const ShowTable=({children,data})=>{
     return(
         <table className='border-2 border-black mx-auto mt-20'>
-            <caption></caption>
+            <caption className='font-semibold'>User Details</caption>
             <thead>
                 {
                     Object.keys(data[0]).map((k,i)=><th key={i} 
                     className='border-2 border-black mx-auto mt-20'>{k}</th>)
                 }
+                <th>Actions</th>
             </thead>
             <tbody>
                 {children}
@@ -70,6 +71,7 @@ const ShowTable=({children,data})=>{
                     Object.keys(data[0]).map((k,i)=><th key={i} 
                     className='border-2 border-black mx-auto mt-20'>{k}</th>)
                 }
+                <th className='w-11'>Actions</th>
                 </tfoot>
         </table>
     );
@@ -77,6 +79,7 @@ const ShowTable=({children,data})=>{
 
 const GenerateRow=({user})=>{
     return(
+
         <tr className='border-2 border-black'>
             {
                 Object.values(user).map((v,i)=><td key={i} 
@@ -86,6 +89,11 @@ const GenerateRow=({user})=>{
                 }
                 </td>)
             }
+            <td className='flex gap-4 my-5 mx-5'>
+                    <button className='rounded p-2 bg-blue-500 cursor-pointer hover: bg-blue-700'>Edit</button>
+                    <button className='rounded p-2 bg-red-500 cursor-pointer hover: bg-red-700'>Delete</button>
+
+            </td>
         </tr>
     );
 }
