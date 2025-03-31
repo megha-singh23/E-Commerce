@@ -10,6 +10,7 @@ import Services, { AddUser, DeleteUser, SeeAllUser, UpdateUser } from './Service
 import Login from './login'
 import Register from './register'
 import Hook from './Hook'
+import WrappingChild from './WrappingChild'
 
 
 const router=createBrowserRouter([
@@ -42,6 +43,11 @@ const router=createBrowserRouter([
             path:'/Use',
             element:<Hook/>
         },
+        {
+            path:'/child',
+            element:<WrappingChild/>
+        },
+
        {
         path: "services",
         element: <Services />,
