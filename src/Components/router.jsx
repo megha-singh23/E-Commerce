@@ -12,9 +12,8 @@ import Register from './register'
 import Hook from './Hook'
 import WrappingChild from './WrappingChild'
 
-
 const router=createBrowserRouter([
-    {
+    {  
         path:'/',
         element:<App/>,
         children:[
@@ -81,6 +80,6 @@ const router=createBrowserRouter([
         path:'*',
         element:<NotFound/>
     }
-])
+]);
 
 export default router
