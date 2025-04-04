@@ -1,14 +1,31 @@
 import { useState } from "react"
 import { Link, NavLink } from "react-router-dom"
+import { useSelector } from "react-redux";
+import Cart from "./Cart";
+import { useRef } from "react";
 
 const Navbar = () => {
 const[isUserModalOpen,setUserModal]=useState(false);
     const [isUserLoggedIn]=useState(false);
+
+    const products=useSelector((state)=>state.cart.value);
     const toggleUserModal=()=>{
         setUserModal(!isUserModalOpen);
     }
+
+    const cartRef=useRef(null);
+    const overlayRef=useRef(null);
+    const toggleCart=()=>{
+        
+        const overlay=overlayRef.current;
+        const cart=cartRef.current;
+        cart.classList.replace('max-w-full','w-0');
+        overlay.classList.add('hidden');
+
+    }
     return (
-        <nav className="bg-gray-800">
+        <nav className="bg-gray-800 fixed top-0 w-full z-10">
+           { <Cart cartRef={cartRef} overlayRef={overlayRef} toggleCart={toggleCart}/>}
             <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
                 <div className="relative flex h-16 items-center justify-between">
                     <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -126,7 +143,8 @@ const[isUserModalOpen,setUserModal]=useState(false);
                             <div className="flex gap-2">
                             <Link to='/login'><button className="rounded p-2 px-2 bg-green-500 font-semibold cursor-pointer">Login</button></Link>
                             <Link to='/register'><button className="rounded p-2 px-2 bg-blue-500 font-semibold cursor-pointer">Register</button></Link>
-                           </div>
+                            <Link to=''><button className="rounded p-2 px-2 bg-yellow-500 font-semibold cursor-pointer " onClick={()=>toggleCart() }>Cart {products.length}</button></Link>
+                            </div>
                         }
                     </div>
                     
