@@ -12,7 +12,7 @@ createRoot(document.getElementById('root')).render(
   <ThemeContext>
     <Provider store={store}>
 
-    <RouterProvider router={router} />
+    <RouterProvider router={router} basename={import.meta.env.BASE_URL} />
     </Provider>
     </ThemeContext>
   // </StrictMode>,
