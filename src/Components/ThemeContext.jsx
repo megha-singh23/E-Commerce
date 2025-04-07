@@ -7,16 +7,21 @@ const data={
     border:2
 }
 
-const Theme=createContext();
+// const Theme=createContext();
 
 const ThemeContext = ({children}) => {
   return (
-    <Theme.Provider value={data}>
-        {console.log(data)}
-        {children}
-    </Theme.Provider>
+    <>gsdhdgwej
+    {
+      console.log("theme....")
+    }
+</>
+    // <Theme.Provider value={data}>
+    //     {console.log(data)}
+    //     {children}
+    // </Theme.Provider>
   )
 }
 
 export default ThemeContext;
-export {Theme}
+// export {Theme}

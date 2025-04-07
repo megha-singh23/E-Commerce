@@ -23,8 +23,14 @@ const[isUserModalOpen,setUserModal]=useState(false);
         
         const overlay=overlayRef.current;
         const cart=cartRef.current;
-        cart.classList.replace('max-w-full','w-0');
         overlay.classList.add('hidden');
+    }
+
+    const cart=useRef(null);
+
+    const openCart=()=>{
+        console.log(overlayRef);
+        overlayRef.current.classList.replace('hidden','block');
 
     }
     return (
@@ -148,7 +154,7 @@ const[isUserModalOpen,setUserModal]=useState(false);
                             <Link to='/login'><button className="rounded p-2 px-2 bg-green-500 font-semibold cursor-pointer flex justify-between items-center gap-2"> <FaRegUserCircle />Login</button></Link>
                             <Link to='/register'><button className="rounded p-2 px-2 bg-blue-500 font-semibold cursor-pointer flex justify-between items-center gap-2"><PiTrademarkRegisteredBold />
                             Register</button></Link>
-                            <Link to=''><button className="rounded p-2 px-2 bg-yellow-500 font-semibold cursor-pointer flex justify-between items-center gap-2" onClick={()=>toggleCart() }><FaCartShopping />Cart {products.length}</button></Link>
+                            <Link to=''><button className="rounded p-2 px-2 bg-yellow-500 font-semibold cursor-pointer flex justify-between items-center gap-2" onClick={openCart}><FaCartShopping />Cart {products.length}</button></Link>
                             </div>
                         }
                     </div>

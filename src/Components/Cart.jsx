@@ -3,16 +3,22 @@ import { useSelector } from 'react-redux'
 
 const Cart = ({cartRef,overlayRef,toggleCart}) => {
 
+  
     const products=useSelector((state)=>state.cart.value);
+    const totalPrice = products.reduce(
+      
+      (total, product) => total + product.price,
+      0
+    );
     
     console.log(products);
   return (
     <div
-  className="relative z-10"
-  aria-labelledby="slide-over-title"
-  role="dialog"
-  aria-modal="true"
-  ref={overlayRef}
+    className="relative z-10 hidden"
+    aria-labelledby="slide-over-title"
+    role="dialog"
+    aria-modal="true"
+    ref={overlayRef}
 >
   
   <div
@@ -72,14 +78,14 @@ const Cart = ({cartRef,overlayRef,toggleCart}) => {
             <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
               <div className="flex justify-between text-base font-medium text-gray-900">
                 <p>Subtotal</p>
-                <p>${products.price}</p>
+                <p>${totalPrice}</p>
               </div>
               <p className="mt-0.5 text-sm text-gray-500">
                 Shipping and taxes calculated at checkout.
               </p>
               <div className="mt-6">
                 <a
-                  href="#"
+                  href="/checkout"
                   className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-xs hover:bg-indigo-700"
                 >
                   Checkout

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import {addProduct} from '../redux/slices/cartSlice'
+import Checkout from './Checkout'
 
 const Product = () => {
 
@@ -9,7 +10,7 @@ const Product = () => {
 
   useEffect(()=>{
     getAllProducts();
-  })
+  },[])
 
     const getAllProducts=async ()=>{
       try{
@@ -36,8 +37,9 @@ const Product = () => {
       
 
       {
-        products.map((product,i)=><SubCard key={i} prod={product}/>)
+        products.map((product,i)=><SubCard key={i} prod={product} />)
       }
+
     </div>
 </>
   )
@@ -74,8 +76,10 @@ const SubCard=({prod})=>{
         </div>
         <div className="flex">
           {/* {quantity>0 ?"Quantity"+ quantity:null} */}
-          {quantity>0 && "Quantity "+ quantity}       {/*Contional Rendering*/}
+          {quantity>0 && "Quantity: "+ quantity}       {/*Contional Rendering*/}
+
         </div>
+
         <div className='flex justify-between gap-2'>
         <button onClick={()=>dispatch(addProduct(prod))} className="mt-4 block w-1/2 rounded-sm bg-yellow-400 p-4 text-sm font-medium transition hover:scale-105">
           Add to Cart

@@ -3,16 +3,16 @@ import App from '../App'
 import NotFound from './NotFound'
 import { createBrowserRouter } from 'react-router-dom'
 import Product from './Product'
-import Calender from './Calender'
 import About from './About'
 import Contact from './Contact'
 import Services, { AddUser, DeleteUser, SeeAllUser, UpdateUser } from './Services'
 import Login from './login'
 import Register from './register'
-import Hook from './Hook'
-import WrappingChild from './WrappingChild'
-import LearnUseRef from './LearnUseRef'
-import LearnUseMemo from "./LearnUseMemo"
+// import Hook from './Hook'
+// import WrappingChild from './WrappingChild'
+// import LearnUseRef from './LearnUseRef'
+// import LearnUseMemo from "./LearnUseMemo"
+import Checkout from './Checkout'
 
 const router=createBrowserRouter([
     {  
@@ -29,10 +29,6 @@ const router=createBrowserRouter([
         element:<Contact/>
        },
        {
-        path:'/Calender',
-        element:<Calender/>
-       },
-       {
         path: "login",
         element: <Login />
         },
@@ -40,22 +36,26 @@ const router=createBrowserRouter([
         path: "register",
         element: <Register />
         },
-        {
-            path:'/Use',
-            element:<Hook/>
-        },
-        {
-            path:'/child',
-            element:<WrappingChild/>
-        },
-        {
-            path:'/useref',
-            element:<LearnUseRef/>
-        },
-        {
-            path:'/usememo',
-            element:<LearnUseMemo/>
-        },
+        // {
+        //     path: "/checkout",
+        //     element: <Checkout />
+        // },
+        // {
+        //     path:'/Use',
+        //     element:<Hook/>
+        // },
+        // {
+        //     path:'/child',
+        //     element:<WrappingChild/>
+        // },
+        // {
+        //     path:'/useref',
+        //     element:<LearnUseRef/>
+        // },
+        // {
+        //     path:'/usememo',
+        //     element:<LearnUseMemo/>
+        // },
 
        {
         path: "services",
@@ -78,9 +78,14 @@ const router=createBrowserRouter([
                 element: <SeeAllUser />
             },
         ]
+        
        
     }
     ]
+    },
+    {
+        path: "/checkout",
+        element: <Checkout />
     },
     {
         path:'/Product',

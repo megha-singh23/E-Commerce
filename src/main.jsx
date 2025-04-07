@@ -9,11 +9,11 @@ import { store } from './redux/store'
 
 createRoot(document.getElementById('root')).render(
   // <StrictMode>
-  <ThemeContext>
+  // <ThemeContext>
     <Provider store={store}>
 
-    <RouterProvider router={router} basename={import.meta.env.BASE_URL} />
+    <RouterProvider router={router} />    
     </Provider>
-    </ThemeContext>
-  // </StrictMode>,
+    // </ThemeContext>
+  // </StrictMode>,overlay.classList.add('hidden');
 )

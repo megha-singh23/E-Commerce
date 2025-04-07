@@ -2,11 +2,11 @@ import React, { useContext } from 'react'
 import Banner from './Components/Banner'
 import Product from './Components/Product'
 import Footer from './Components/footer'
-import {Theme} from './Components/ThemeContext'
+// import {Theme} from './Components/ThemeContext'
 
 const Location = () => {
 
-  const con=useContext(Theme);
+  // const con=useContext(Theme);
   return (
     <>
 
