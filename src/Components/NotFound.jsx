@@ -5,5 +5,6 @@ const NotFound = () => {
     <div className='text-3xl'>404:- Page Not Found</div>
   )
 }
-
 export default NotFound
+
+

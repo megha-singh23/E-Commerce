@@ -1,78 +1,68 @@
-import React from 'react'
+import React from 'react';
 
 const About = () => {
+  const containerStyle = {
+    maxWidth: '900px',
+    margin: '0 auto',
+    padding: '40px 20px',
+    fontFamily: 'Arial, sans-serif',
+    lineHeight: '1.6',
+    
+  };
+
+  const headingStyle = {
+    textAlign: 'center',
+    fontSize: '36px',
+    marginBottom: '20px',
+    color: '#333',
+  };
+
+  const subheadingStyle = {
+    fontSize: '24px',
+    marginTop: '30px',
+    color: '#444',
+  };
+
+  const paragraphStyle = {
+    fontSize: '16px',
+    color: '#555',
+    marginTop: '10px',
+  };
+
+  const listStyle = {
+    marginTop: '15px',
+    paddingLeft: '20px',
+    color: '#555',
+  };
+
   return (
-    <>
-    <article className="flex flex-col gap-4 rounded-lg border border-gray-100 bg-white p-6 dark:border-gray-800 dark:bg-gray-900"
->
-  <div
-    className="inline-flex gap-2 self-end rounded-sm bg-green-100 p-1 text-green-600 dark:bg-green-700 dark:text-green-50"
-  >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className="size-4"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="2"
-        d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
-      />
-    </svg>
+    <div style={containerStyle} >
+      <h1 style={headingStyle} className='mt-12'>About Fasten</h1>
+      <p style={paragraphStyle}>
+        Welcome to <strong>Fasten</strong> — your one-stop destination for fast, reliable, and enjoyable online shopping.
+      </p>
 
-    <span className="text-xs font-medium"> 67.81% </span>
-  </div>
+      <h2 style={subheadingStyle}>Who We Are</h2>
+      <p style={paragraphStyle}>
+        Fasten is an innovative eCommerce platform offering a wide range of quality products across fashion, electronics, home essentials, and more.
+        Our goal is to make shopping simple, quick, and satisfying for everyone.
+      </p>
 
-  <div>
-    <strong className="block text-sm font-medium text-gray-500 dark:text-gray-400"> Profit </strong>
+      <h2 style={subheadingStyle}>Our Mission</h2>
+      <p style={paragraphStyle}>
+        At Fasten, we aim to deliver a smooth and secure shopping experience. From user-friendly navigation to fast deliveries and great support,
+        we’re committed to customer satisfaction at every step.
+      </p>
 
-    <p>
-      <span className="text-2xl font-medium text-gray-900 dark:text-white"> $404.32 </span>
+      <h2 style={subheadingStyle}>Why Choose Us?</h2>
+      <ul style={listStyle}>
+        <li>✔ Wide selection of quality products</li>
+        <li>✔ Fast and secure checkout</li>
+        <li>✔ Mobile-friendly and responsive design</li>
+        <li>✔ Friendly and responsive customer support</li>
+      </ul>
+    </div>
+  );
+};
 
-      <span className="text-xs text-gray-500 dark:text-gray-400"> from $240.94 </span>
-    </p>
-  </div>
-</article>
-
-<article
-  className="flex flex-col gap-4 rounded-lg border border-gray-100 bg-white p-6 dark:border-gray-800 dark:bg-gray-900"
->
-  <div
-    className="inline-flex gap-2 self-end rounded-sm bg-red-100 p-1 text-red-600 dark:bg-red-700 dark:text-red-50"
-  >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className="size-4"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="2"
-        d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"
-      />
-    </svg>
-
-    <span className="text-xs font-medium"> 67.81% </span>
-  </div>
-
-  <div>
-    <strong className="block text-sm font-medium text-gray-500 dark:text-gray-400"> Profit </strong>
-
-    <p>
-      <span className="text-2xl font-medium text-gray-900 dark:text-white"> $240.94 </span>
-
-      <span className="text-xs text-gray-500 dark:text-gray-400"> from $404.32 </span>
-    </p>
-  </div>
-</article>
-</>
-  )
-}
-
-export default About
+export default About;

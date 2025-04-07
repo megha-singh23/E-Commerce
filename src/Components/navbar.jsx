@@ -1,8 +1,12 @@
 import { useState } from "react"
+import { FaRegUserCircle } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom"
 import { useSelector } from "react-redux";
 import Cart from "./Cart";
 import { useRef } from "react";
+import { FaCartShopping } from "react-icons/fa6";
+import { PiTrademarkRegisteredBold } from "react-icons/pi";
+
 
 const Navbar = () => {
 const[isUserModalOpen,setUserModal]=useState(false);
@@ -45,10 +49,10 @@ const[isUserModalOpen,setUserModal]=useState(false);
                         <div className="flex shrink-0 items-center">
 
                             <Link to={"/"}>
-                                <img className="h-8 w-auto" src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company" />
+                                <img className="h-8 w-auto" src="logo.png" alt="Your Company" />
                             </Link>
 
-                        </div>
+                        </div> 
                         <div className="hidden sm:ml-6 sm:block">
                             <div className="flex space-x-4">
 
@@ -99,7 +103,7 @@ const[isUserModalOpen,setUserModal]=useState(false);
                                                 tabIndex={-1}
                                                 id="menu-item-0"
                                             >
-                                                Add
+                                                Fast Delivery
                                             </NavLink>
                                             <NavLink
                                                 to="services/update"
@@ -108,7 +112,7 @@ const[isUserModalOpen,setUserModal]=useState(false);
                                                 tabIndex={-1}
                                                 id="menu-item-1"
                                             >
-                                                Update
+                                                24/7 Customer Support
                                             </NavLink>
                                             <NavLink
                                                 to="services/delete"
@@ -117,7 +121,7 @@ const[isUserModalOpen,setUserModal]=useState(false);
                                                 tabIndex={-1}
                                                 id="menu-item-2"
                                             >
-                                                Delete
+                                                Easy Returns
                                             </NavLink>
                                             <NavLink
                                                 to="services/allusers"
@@ -126,7 +130,7 @@ const[isUserModalOpen,setUserModal]=useState(false);
                                                 tabIndex={-1}
                                                 id="menu-item-2"
                                             >
-                                                All Users
+                                                Secure Payments
                                             </NavLink>
                                         </div>
                                     </div>
@@ -141,9 +145,10 @@ const[isUserModalOpen,setUserModal]=useState(false);
                             isUserModalOpen={isUserModalOpen}
                             />:
                             <div className="flex gap-2">
-                            <Link to='/login'><button className="rounded p-2 px-2 bg-green-500 font-semibold cursor-pointer">Login</button></Link>
-                            <Link to='/register'><button className="rounded p-2 px-2 bg-blue-500 font-semibold cursor-pointer">Register</button></Link>
-                            <Link to=''><button className="rounded p-2 px-2 bg-yellow-500 font-semibold cursor-pointer " onClick={()=>toggleCart() }>Cart {products.length}</button></Link>
+                            <Link to='/login'><button className="rounded p-2 px-2 bg-green-500 font-semibold cursor-pointer flex justify-between items-center gap-2"> <FaRegUserCircle />Login</button></Link>
+                            <Link to='/register'><button className="rounded p-2 px-2 bg-blue-500 font-semibold cursor-pointer flex justify-between items-center gap-2"><PiTrademarkRegisteredBold />
+                            Register</button></Link>
+                            <Link to=''><button className="rounded p-2 px-2 bg-yellow-500 font-semibold cursor-pointer flex justify-between items-center gap-2" onClick={()=>toggleCart() }><FaCartShopping />Cart {products.length}</button></Link>
                             </div>
                         }
                     </div>

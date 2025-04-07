@@ -11,6 +11,8 @@ import Login from './login'
 import Register from './register'
 import Hook from './Hook'
 import WrappingChild from './WrappingChild'
+import LearnUseRef from './LearnUseRef'
+import LearnUseMemo from "./LearnUseMemo"
 
 const router=createBrowserRouter([
     {  
@@ -45,6 +47,14 @@ const router=createBrowserRouter([
         {
             path:'/child',
             element:<WrappingChild/>
+        },
+        {
+            path:'/useref',
+            element:<LearnUseRef/>
+        },
+        {
+            path:'/usememo',
+            element:<LearnUseMemo/>
         },
 
        {

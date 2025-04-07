@@ -20,9 +20,13 @@ const Register = () => {
             scale: { type: "spring", visualDuration: 0.4, bounce: 0.5 },
         }}
     >
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} className='mt-20 mb-6'>
         <div className="space-y-6">
-          
+        <img
+        className="mx-auto h-10 w-auto"
+        src="logo.png"
+        alt="Your Company"
+      />
 
           <div className="border-b border-gray-900/10 pb-7">
             <div className="mt-3 grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-6">
