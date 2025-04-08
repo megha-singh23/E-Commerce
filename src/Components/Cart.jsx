@@ -1,9 +1,11 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import { clearCart, removeProduct } from '../redux/slices/cartSlice';
+import { useDispatch } from 'react-redux';
 
 const Cart = ({cartRef,overlayRef,toggleCart}) => {
-
   
+  const dispatch=useDispatch();
     const products=useSelector((state)=>state.cart.value);
     const totalPrice = products.reduce(
       
@@ -11,7 +13,7 @@ const Cart = ({cartRef,overlayRef,toggleCart}) => {
       0
     );
     
-    console.log(products);
+    // console.log(products);
   return (
     <div
     className="relative z-10 hidden"
@@ -69,8 +71,9 @@ const Cart = ({cartRef,overlayRef,toggleCart}) => {
                 <div className="flow-root">
                   <ul role="list" className="-my-6 divide-y divide-gray-200">
                     {
-                        products.map((product,i)=><ProdEntry product={product} key={i}/>)
+                        products.map((product,i)=><ProdEntry product={product} key={i}/> )
                     }
+                    
                   </ul>
                 </div>
               </div>
@@ -93,12 +96,13 @@ const Cart = ({cartRef,overlayRef,toggleCart}) => {
               </div>
               <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                 <p>
-                  or
+                  or 
                   <button
                     type="button"
                     className="font-medium text-indigo-600 hover:text-indigo-500"
+                    onClick={()=>dispatch(clearCart())}
                   >
-                    Continue Shopping
+                    Clean Cart
                     <span aria-hidden="true"> →</span>
                   </button>
                 </p>
@@ -116,7 +120,9 @@ const Cart = ({cartRef,overlayRef,toggleCart}) => {
 
 export default Cart;
 
-const ProdEntry =({product}) => {
+export const ProdEntry =({product}) => {
+  console.log(product);
+  const dispatch = useDispatch();
     return(
             <>
         <li className="flex py-6">
@@ -143,6 +149,7 @@ const ProdEntry =({product}) => {
                             <button
                               type="button"
                               className="font-medium text-indigo-600 hover:text-indigo-500"
+                              onClick={()=>dispatch(removeProduct(product.id))}
                             >
                               Remove
                             </button>

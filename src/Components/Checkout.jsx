@@ -1,6 +1,10 @@
 import { useSelector } from "react-redux";
+import Navbar from "./navbar";
+import { useDispatch } from "react-redux";
+import { removeProduct } from '../redux/slices/cartSlice';
 
 const Checkout = () => {
+  const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart.value); 
   if (!Array.isArray(cart)) {
     console.warn('Cart is not an array!', cart);
@@ -11,14 +15,56 @@ const Checkout = () => {
     (total, product) => total + product.price ,
     0
   );
+  console.log(cart);
 
   return (
-    <div style={styles.container}>
-      <h1 style={styles.heading}>🧾 Checkout</h1>
+    <>
+    <Navbar/>
+    <div style={styles.container} className="mt-14">
+      <h1 style={styles.heading} >🧾 Checkout</h1>
 
       {/* Cart Items */}
       <div style={styles.section}>
         <h2 style={styles.subheading}>🛒 Your Items</h2>
+        
+        <ul>
+  {cart.map((item) => (
+    <li className="flex py-6" key={item.id}>
+      <div className="size-24 shrink-0 overflow-hidden rounded-md border border-gray-200">
+        <img
+          src={item.image}
+          alt={item.description}
+          className="size-full object-cover"
+        />
+      </div>
+      <div className="ml-4 flex flex-1 flex-col">
+        <div>
+          <div className="flex justify-between text-base font-medium text-gray-900">
+            <h3>
+              <a href="#">{item.title}</a>
+            </h3>
+            <p className="ml-4">${item.price}</p>
+          </div>
+          <p className="mt-1 text-sm text-gray-500">{item.category}</p>
+        </div>
+        <div className="flex flex-1 items-end justify-between text-sm">
+          <p className="text-gray-500">Qty 1</p>
+          <div className="flex">
+            <button
+              type="button"
+              className="font-medium text-indigo-600 hover:text-indigo-500"
+              onClick={() => dispatch(removeProduct(item.id)) }
+            >
+              Remove
+            </button>
+          </div>
+        </div>
+      </div>
+    </li>
+  ))}
+</ul>
+
+
         {cart.length === 0 ? (
           <p>Your cart is empty.</p>
         ) : (
@@ -57,6 +103,7 @@ const Checkout = () => {
       {/* Place Order */}
       <button style={styles.checkoutBtn}>Place Order</button>
     </div>
+    </>
   );
 };
 

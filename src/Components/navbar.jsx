@@ -9,6 +9,7 @@ import { PiTrademarkRegisteredBold } from "react-icons/pi";
 
 
 const Navbar = () => {
+    
 const[isUserModalOpen,setUserModal]=useState(false);
     const [isUserLoggedIn]=useState(false);
 

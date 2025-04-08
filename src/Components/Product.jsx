@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import {addProduct} from '../redux/slices/cartSlice'
-import Checkout from './Checkout'
+// import Checkout from './Checkout'
 
 const Product = () => {
 
