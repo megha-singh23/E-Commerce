@@ -3,11 +3,11 @@ import {useRef} from 'react';
 
 const LearnUseRef = () => {
 
-  const h1Ref=useRef(null);
-  const changeStyle=()=>{
-    h1Ref.current.style.color="red";
-    h1Ref.current.style.backgroundColor="yellow";
-  }
+  // const h1Ref=useRef(null);
+  // const changeStyle=()=>{
+  //   h1Ref.current.style.color="red";
+  //   h1Ref.current.style.backgroundColor="yellow";
+  // }
   const [num1,setNum1]=useState(0);
   const num2=useRef(0);
 

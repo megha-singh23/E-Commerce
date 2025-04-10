@@ -8,7 +8,7 @@ const Checkout = () => {
   const cart = useSelector((state) => state.cart.value); 
   if (!Array.isArray(cart)) {
     console.warn('Cart is not an array!', cart);
-    return <div>Something went wrong with the cart data.</div>;
+    return <div>Something went wrong with the cart data!!!</div>;
   }
 
   const totalPrice = cart.reduce(
