@@ -30,7 +30,7 @@ const Product = () => {
   return (
     <>
     <div className='font-bold text-4xl text-center mt-1.5'>Products List</div>
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6 ">
       {/* {JSON.stringify(products)};
 
       {Array.from("")} */}
