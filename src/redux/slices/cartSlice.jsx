@@ -17,7 +17,7 @@ export const cartSlice = createSlice({
     clearCart: (state) => {
       state.value = [];
     },
-    totalPrice:(state,action)=>{
+    totalPrice:(state)=>{
         state.value=state.value.map(item=>item.price);
         state.value+=state.value;
     }
